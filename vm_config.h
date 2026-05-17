@@ -18,8 +18,9 @@ typedef enum {
 typedef struct {
     uint8_t memory[MEMORY_SIZE];
     uint8_t registers[NUM_REGISTERS];
-    uint8_t pc; // Program Counter
-    uint8_t sp; // Stack Pointer
+    uint8_t pc; // Program Counter                                                                                                                                                                                                                                                                             
+    uint8_t sp; // Stack Pointer  
+    uint8_t running;
 } CPU;
 
 #endif 
