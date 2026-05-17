@@ -24,6 +24,10 @@ void cpu_step(CPU *cpu) {
         
         case SET: { uint8_t reg = cpu->memory[cpu->pc++]; uint8_t val = cpu->memory[cpu->pc++]; execute_set(cpu, reg, val); break; }
 
+        case DUP:  execute_dup(cpu);                            break;
+        case NOP:  execute_nop(cpu);                            break;
+        case SWAP: execute_swap(cpu);                           break;
+
         case HLT: execute_halt(cpu);                            break;
     }
 }

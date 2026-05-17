@@ -20,6 +20,9 @@ typedef enum {
     XOR,
     NOT,
     SET,
+    DUP,
+    NOP,
+    SWAP,
 } InstructionSet;
 
 
