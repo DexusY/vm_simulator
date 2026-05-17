@@ -21,8 +21,13 @@ void cpu_step(CPU *cpu) {
         case OR: execute_or(cpu);                               break;
         case XOR: execute_xor(cpu);                             break;
         case NOT: execute_not(cpu);                             break;
+        case SHL: execute_shl(cpu);                             break;
+        case SHR: execute_shr(cpu);                             break;
         
-        case SET: { uint8_t reg = cpu->memory[cpu->pc++]; uint8_t val = cpu->memory[cpu->pc++]; execute_set(cpu, reg, val); break; }
+        case SET:   { uint8_t reg = cpu->memory[cpu->pc++]; uint8_t val = cpu->memory[cpu->pc++]; execute_set(cpu, reg, val); break; }
+        case LOAD:  { uint8_t reg = cpu->memory[cpu->pc++]; uint8_t addr = cpu->memory[cpu->pc++]; execute_load(cpu, reg, addr);   break; }
+        case STORE: { uint8_t reg = cpu->memory[cpu->pc++]; uint8_t addr = cpu->memory[cpu->pc++]; execute_store(cpu, reg, addr); break; }
+        case MOV:   { uint8_t dst = cpu->memory[cpu->pc++]; uint8_t src  = cpu->memory[cpu->pc++]; execute_mov(cpu, dst, src);    break; }
 
         case DUP:  execute_dup(cpu);                            break;
         case NOP:  execute_nop(cpu);                            break;

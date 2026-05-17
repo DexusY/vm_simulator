@@ -3,6 +3,11 @@ project(vm_simulator C)
 
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED ON)
+set(CMAKE_C_EXTENSIONS OFF)
+
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE Debug CACHE STRING "Build type" FORCE)
+endif()
 
 add_executable(vm_simulator
     main.c
@@ -14,4 +19,12 @@ add_executable(vm_simulator
     instructions_stack.c
 )
 
-target_compile_options(vm_simulator PRIVATE -Wall -Wextra)
+target_compile_options(vm_simulator PRIVATE
+    -Wall
+    -Wextra
+    -Wpedantic
+    -Wshadow
+    -Wconversion
+    $<$<CONFIG:Debug>:-g3 -O0>
+    $<$<CONFIG:Release>:-O2>
+)

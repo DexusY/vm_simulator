@@ -13,4 +13,6 @@ void execute_and(CPU *cpu);
 void execute_or(CPU *cpu);
 void execute_xor(CPU *cpu);
 void execute_not(CPU *cpu);
+void execute_shl(CPU *cpu);
+void execute_shr(CPU *cpu);
 #endif
