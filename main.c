@@ -1,22 +1,9 @@
 #include <stdio.h>
 #include <stdint.h>
+#include <stdbool.h>
 
 #include "program_loader.h"
-
-#define MEMORY_SIZE 256
-#define NUM_REGISTERS 4
-
-#define MEMORY[MEMORY_SIZE]
-#define REGISTERS[NUM_REGISTERS]
-#define PC
-
-typedef enum {
-    HLT = 0, 
-    PSH,     
-    ADD,     
-    POP,     
-    SET,     
-} InstructionSet;
+#include "vm_config.h"
 
 int main() {
     const uint8_t program[] = {
@@ -27,15 +14,12 @@ int main() {
         HLT
     };
 
-    uint8_t memory[MEMORY_SIZE] = {0};
-    uint8_t registers[NUM_REGISTERS] = {0};
-    uint8_t pc = 0;
+    CPU cpu = {0};
 
     int program_size = sizeof(program) / sizeof(program[0]);
-    loader(program, program_size, memory);
-
-    uint8_t fetch = memory[pc];
+    
+    loader(program, program_size, cpu.memory);
+    uint8_t fetch = cpu.memory[cpu.pc];
 
     return 0;
-
 }
