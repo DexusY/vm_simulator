@@ -7,11 +7,19 @@
 #define NUM_REGISTERS 4
 
 typedef enum {
-    HLT = 0, 
-    PSH,     
-    ADD,     
-    POP,     
-    SET,     
+    HLT = 0,
+    PSH,
+    POP,
+    ADD,
+    SUB,
+    MUL,
+    DIV,
+    MOD,
+    AND,
+    OR,
+    XOR,
+    NOT,
+    SET,
 } InstructionSet;
 
 
