@@ -12,6 +12,7 @@ endif()
 add_executable(vm_simulator
     main.c
     cpu.c
+    flag.c
     program_loader.c
     instructions_alu.c
     instructions_control.c
