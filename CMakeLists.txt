@@ -29,3 +29,6 @@ target_compile_options(vm_simulator PRIVATE
     $<$<CONFIG:Debug>:-g3 -O0>
     $<$<CONFIG:Release>:-O2>
 )
+
+enable_testing()
+add_subdirectory(tests)
