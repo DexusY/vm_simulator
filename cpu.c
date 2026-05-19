@@ -33,6 +33,15 @@ void cpu_step(CPU *cpu) {
         case NOP:  execute_nop(cpu);                            break;
         case SWAP: execute_swap(cpu);                           break;
 
+        case CMP:  { uint8_t reg = cpu->memory[cpu->pc++]; uint8_t val = cpu->memory[cpu->pc++]; execute_cmp(cpu, reg, val); break; }
+        case JMP:  execute_jmp(cpu, cpu->memory[cpu->pc++]);    break;
+        case JZ:   execute_jz(cpu, cpu->memory[cpu->pc++]);     break;
+        case JNZ:  execute_jnz(cpu, cpu->memory[cpu->pc++]);    break;
+        case JG:   execute_jg(cpu, cpu->memory[cpu->pc++]);     break;
+        case JL:   execute_jl(cpu, cpu->memory[cpu->pc++]);     break;
+        case CALL: execute_call(cpu, cpu->memory[cpu->pc++]);   break;
+        case RET:  execute_ret(cpu);                            break;
+
         case HLT: execute_halt(cpu);                            break;
     }
 }

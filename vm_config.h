@@ -33,6 +33,14 @@ typedef enum {
     DUP,
     NOP,
     SWAP,
+    CMP,
+    JMP,
+    JZ,
+    JNZ,
+    JG,
+    JL,
+    CALL,
+    RET,
 } InstructionSet;
 
 

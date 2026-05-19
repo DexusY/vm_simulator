@@ -63,7 +63,7 @@ void execute_jl(CPU *cpu, uint8_t addr) {   // SF != OF
 
 void execute_call(CPU *cpu, uint8_t addr) {
     cpu->sp--;
-    cpu->memory[cpu->sp] = cpu->pc + 2; 
+    cpu->memory[cpu->sp] = cpu->pc;
     cpu->pc = addr;
     printf("[Control] CALL -> 0x%02X\n", addr);
 }
